@@ -1,6 +1,5 @@
 import deta from '../../db';
-import {Link, List, Transaction} from '../../link';
-import {useRouter} from 'next/router';
+import {List, Transaction} from '../../link';
 import {transaction} from '../../type';
 import Head from 'next/head';
 import {
@@ -20,8 +19,6 @@ function Bx(p) {
 }
 
 export default function Index(data) {
-  const un = useRouter().query
-
   return (
     <div className="top">
 
@@ -44,11 +41,6 @@ export default function Index(data) {
     </List>
     </div>
   );
-}
-
-function str(v: transaction, me: string) {
-  if(v.from === me) return <>Sent {v.amount} balloons to <Link href={"/holders/"+v.to}>{v.to}</Link> on {new Date(v.time).toString()}</>
-  else return <>Received {v.amount} balloons from <Link href={'/holders/'+v.from}>{v.from}</Link> on {new Date(v.time).toString()}</>
 }
 
 export async function getServerSideProps({params}) {

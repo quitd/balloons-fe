@@ -1,10 +1,10 @@
-import deta from '../db';
+import deta from '../../db';
 import {
   Heading,
   Divider
 } from '@chakra-ui/react';
-import {List, Transaction} from '../link';
-import {transaction} from '../type';
+import {List, Transaction} from '../../link';
+import {transaction} from '../../type';
 import Head from 'next/head';
 
 const db = deta.Base("transactions")

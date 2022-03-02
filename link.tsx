@@ -23,6 +23,6 @@ export function Transaction(p) {
   return <Stat>
   <StatLabel><Link href={"/holders/"+v.from}>{v.from}</Link> → <Link href={"/holders/"+v.to}>{v.to}</Link></StatLabel>
   <StatNumber>{v.amount} balloons</StatNumber>
-  <StatHelpText>{new Date(v.time).toString()}</StatHelpText>
+  <StatHelpText><Link href={"/transactions/"+v.key}>{new Date(v.time).toString()}</Link></StatHelpText>
   </Stat>
 }
