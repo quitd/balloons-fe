@@ -5,26 +5,6 @@
   padding: 1em;
 }
 
-.tr {
-  border: solid 3px grey;
-  border-radius: 8px;
-  list-style: none;
-  padding: 0;
-}
-
-.tr > li {
-  padding: 1em;
-}
-
-.tr > li+li {
-  border-top: solid 3px grey;
-}
-
-.gr {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-}
-
 @media(max-width: 600px) {
   .top {
     width: 100%;
