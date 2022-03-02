@@ -20,7 +20,7 @@ function Bx(p) {
 
 export default function Index(data) {
   return (
-    <div className="top">
+    <>
 
     <Head><title>{data.user.username} — 🎈</title></Head>
 
@@ -39,7 +39,7 @@ export default function Index(data) {
     <List>
     {!data.tr?'nothing here':data.tr.map((v: transaction) => <Transaction tr={v} key={v.key} />)}
     </List>
-    </div>
+    </>
   );
 }
 

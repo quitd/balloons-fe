@@ -7,7 +7,7 @@ const db = deta.Base("transactions")
 
 export default function Index({data}) {
   return (
-    <div className="top">
+    <>
     <Head>
     <title>Balloons 🎈</title>
     </Head>
@@ -23,7 +23,7 @@ export default function Index({data}) {
     <Divider />
     <Heading as="h2" size="md">See the list of holders</Heading>
     <Link href="/holders">See the list →</Link>
-    </div>
+    </>
   );
 }
 

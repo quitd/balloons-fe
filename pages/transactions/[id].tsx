@@ -5,7 +5,7 @@ import Head from 'next/head';
 const db = deta.Base('transactions');
 
 export default function Trans({data}) {
-  return <div className="top"><Head><title>Transaction {data.key} — 🎈</title></Head><List><Transaction tr={data} /></List></div>
+  return <><Head><title>Transaction {data.key} — 🎈</title></Head><List><Transaction tr={data} /></List></>
 }
 
 export async function getServerSideProps({params}) {

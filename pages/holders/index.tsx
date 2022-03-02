@@ -8,14 +8,14 @@ const db = deta.Base("amounts")
 
 export default function Balance({data}) {
   return (
-    <div className="top">
+    <>
     <Head><title>Holders — 🎈</title></Head>
-    <Heading as="h1">Holders</Heading>
+    <Heading as="h1">Holders 🎈</Heading>
     <Divider />
     <List>
     {data.map((v: transaction) => <Grid key={v.key} templateColumns="2fr 1fr"><Link href={'/holders/'+v.key}>{v.key}</Link><span>{v.amount} balloons</span></Grid>)}
     </List>
-    </div>
+    </>
   );
 }
 

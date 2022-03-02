@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }) {
         }
       },
     },
-  })}>{l ? <Center w="100vw" h="100vh"><Spinner size="xl" thickness="3px" /></Center> : <Component {...pageProps} />}</ChakraProvider>
+  })}>{l ? <Center w="100vw" h="100vh"><Spinner size="xl" thickness="3px" /></Center> : <div className="top"><Component {...pageProps} /></div>}</ChakraProvider>
 }
 
 export default MyApp

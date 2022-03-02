@@ -11,14 +11,14 @@ const db = deta.Base("transactions")
 
 export default function Transactions({acData}) {
   return (
-    <div className="top">
+    <>
     <Head><title>Transactions — 🎈</title></Head>
     <Heading as="h1">Transactions 🎈</Heading>
     <Divider />
     <List>
     {acData.map((v: transaction) => <Transaction key={v.key} tr={v} />)}
     </List>
-    </div>
+    </>
   );
 }
 
