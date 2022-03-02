@@ -9,8 +9,7 @@ import {
   StatNumber,
   Box,
   Heading,
-  Link as Clink,
-  StatHelpText
+  Link as Clink
 } from '@chakra-ui/react'
 
 const db = deta.Base("transactions")

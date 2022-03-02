@@ -1,5 +1,4 @@
 import deta from '../db';
-import str from '../str';
 import {
   Heading,
   Divider
