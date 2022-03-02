@@ -1,5 +1,10 @@
 import deta from '../db';
 import str from '../str';
+import {
+  Heading,
+  Divider
+} from '@chakra-ui/react';
+import {List, Transaction} from '../link';
 import {transaction} from '../type';
 import Head from 'next/head';
 
@@ -9,11 +14,11 @@ export default function Transactions({acData}) {
   return (
     <div className="top">
     <Head><title>Transactions — 🎈</title></Head>
-    <h1>Transactions 🎈</h1>
-    <hr />
-    <ul className="tr">
-    {acData.map((v: transaction) => <li key={v.key}>{str(v)}</li>)}
-    </ul>
+    <Heading as="h1">Transactions 🎈</Heading>
+    <Divider />
+    <List>
+    {acData.map((v: transaction) => <Transaction key={v.key} tr={v} />)}
+    </List>
     </div>
   );
 }

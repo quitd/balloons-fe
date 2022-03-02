@@ -1,11 +1,8 @@
-* {
-  font-family: sans-serif;
-}
-
 .top {
   width: 50%;
   margin: auto;
   max-width: 100vw;
+  padding: 1em;
 }
 
 .tr {

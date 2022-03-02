@@ -1,24 +1,48 @@
 import deta from '../../db';
-import Link from 'next/link';
+import {Link, List, Transaction} from '../../link';
 import {useRouter} from 'next/router';
 import {transaction} from '../../type';
 import Head from 'next/head';
+import {
+  Stat,
+  StatLabel,
+  StatNumber,
+  Box,
+  Heading,
+  Link as Clink,
+  StatHelpText
+} from '@chakra-ui/react'
 
 const db = deta.Base("transactions")
 const us = deta.Base('amounts');
+
+function Bx(p) {
+  return <Box my="4" {...p} p="4" borderWidth="1px" borderRadius="lg" />
+}
 
 export default function Index(data) {
   const un = useRouter().query
 
   return (
     <div className="top">
+
     <Head><title>{data.user.username} — 🎈</title></Head>
-    <h1>{data.user.username} <a href={'https://forum.gethopscotch.com/u/'+data.user.username} target="_blank" rel="noreferrer">↗</a></h1>
-    <hr />
-    <h2>{data.ba.amount} balloons</h2>
-    <ul className="tr">
-    {!data.tr?'nothing here':data.tr.map((v: transaction) => <li key={v.key}>{str(v, un.user as string)}</li>)}
-    </ul>
+
+    <Bx>
+    <Heading as="h1">{data.user.username}</Heading>
+    <Clink href={'https://forum.gethopscotch.com/u/'+data.user.username} target="_blank" rel="noreferrer">See {data.user.username} on the Hopscotch Forum ↗</Clink>
+    </Bx>
+
+    <Bx>
+    <Stat>
+    <StatLabel>Balance</StatLabel>
+    <StatNumber>{data.ba.amount} balloons</StatNumber>
+    </Stat>
+    </Bx>
+
+    <List>
+    {!data.tr?'nothing here':data.tr.map((v: transaction) => <Transaction tr={v} key={v.key} />)}
+    </List>
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import deta from '../../db';
-import Link from 'next/link';
+import {Link, List} from '../../link';
+import {Heading, Grid, Divider} from '@chakra-ui/react';
 import {transaction} from '../../type';
 import Head from 'next/head';
 
@@ -9,11 +10,11 @@ export default function Balance({data}) {
   return (
     <div className="top">
     <Head><title>Holders — 🎈</title></Head>
-    <h1>Balloons 🎈</h1>
-    <hr />
-    <ul className="tr">
-    {data.map((v: transaction) => <li className="gr" key={v.key}><Link href={'/holders/'+v.key}>{v.key}</Link><span>{v.amount} balloons</span></li>)}
-    </ul>
+    <Heading as="h1">Holders</Heading>
+    <Divider />
+    <List>
+    {data.map((v: transaction) => <Grid key={v.key} templateColumns="2fr 1fr"><Link href={'/holders/'+v.key}>{v.key}</Link><span>{v.amount} balloons</span></Grid>)}
+    </List>
     </div>
   );
 }

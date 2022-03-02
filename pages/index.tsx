@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import str from '../str';
+import {Link, List, Transaction} from '../link'
 import deta from '../db';
 import Head from 'next/head';
+import {Heading, Divider} from '@chakra-ui/react';
 
 const db = deta.Base("transactions")
 
@@ -11,16 +11,18 @@ export default function Index({data}) {
     <Head>
     <title>Balloons 🎈</title>
     </Head>
-    <h1>Balloons 🎈</h1>
-    <hr />
-    <h2>Latest transaction</h2>
-    <ul className="tr">
-    <li>{!data ? 'none' : str(data)}</li>
-    </ul>
-    <Link href="/transactions">See all transactions</Link>
-    <hr />
-    <h2>See the list of holders</h2>
-    <Link href="/holders">See the list</Link>
+    <Heading as="h1">
+    Balloons 🎈
+    </Heading>
+    <Divider />
+    <Heading as="h2" size="md">Latest transaction</Heading>
+    <List>
+    <Transaction tr={data} />
+    </List>
+    <Link href="/transactions">See all transactions →</Link>
+    <Divider />
+    <Heading as="h2" size="md">See the list of holders</Heading>
+    <Link href="/holders">See the list →</Link>
     </div>
   );
 }
