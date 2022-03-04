@@ -23,6 +23,6 @@ export function Transaction(p) {
   return <Stat>
   <StatLabel><Link href={"/holders/"+v.from}>{v.from}</Link> → <Link href={"/holders/"+v.to}>{v.to}</Link></StatLabel>
   <StatNumber>{v.amount} balloons</StatNumber>
-  <StatHelpText><Link href={"/transactions/"+v.key}>{new Date(v.time).toString()}</Link></StatHelpText>
+  <StatHelpText><Link href={"/transactions/"+v.key}>{new Date(v.time).toString()}</Link> — <Clink href={'https://forum.gethopscotch.com/p/'+v.key} target="_blank" rel="noreferrer">forum post ↗</Clink></StatHelpText>
   </Stat>
 }
