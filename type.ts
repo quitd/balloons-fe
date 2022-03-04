@@ -6,3 +6,8 @@ export type transaction = {
   time: number,
   type: string
 }
+
+export type user = {
+  key: string,
+  amount: number
+}

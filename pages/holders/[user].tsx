@@ -1,6 +1,6 @@
 import deta from '../../db';
 import {List, Transaction} from '../../link';
-import {transaction} from '../../type';
+import {transaction, user} from '../../type';
 import Head from 'next/head';
 import {
   Stat,
@@ -8,17 +8,18 @@ import {
   StatNumber,
   Box,
   Heading,
-  Link as Clink
+  Link as Clink,
+  BoxProps
 } from '@chakra-ui/react'
 
 const db = deta.Base("transactions")
 const us = deta.Base('amounts');
 
-function Bx(p) {
+function Bx(p: BoxProps) {
   return <Box my="4" {...p} p="4" borderWidth="1px" borderRadius="lg" />
 }
 
-export default function Index(data) {
+export default function Index(data: {tr: transaction[], ba: user, user: any}) {
   return (
     <>
 
