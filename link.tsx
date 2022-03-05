@@ -12,6 +12,7 @@ import {
   Button
 } from '@chakra-ui/react';
 import {useState} from 'react';
+import { useRouter } from 'next/router';
 
 export function Link(props) {
   return <NextLink {...props} passHref><Clink {...props}></Clink></NextLink>
@@ -40,10 +41,16 @@ export function Rescan() {
     sL(false);
     toast({
       title: 'The topic is being scanned',
-      description: "Give it a second then reload the page.",
+      description: "Give it a second then click the refresh button.",
       status: 'success',
       duration: 5000,
       isClosable: true
     })
   }}>Rescan topic</Button>
+}
+
+export function Refresh() {
+  const r = useRouter();
+
+  return <Button variant="ghost" onClick={() => r.replace(r.asPath)}>Refresh</Button>
 }

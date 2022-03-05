@@ -1,4 +1,4 @@
-import {Link, List, Transaction, Rescan} from '../link'
+import {Link, List, Transaction, Rescan, Refresh} from '../link'
 import deta from '../db';
 import Head from 'next/head';
 import {Heading, Divider, HStack} from '@chakra-ui/react';
@@ -17,6 +17,7 @@ export default function Index({data}) {
     <Divider />
     <HStack>
     <Heading w="full" as="h2" size="md">Latest transaction</Heading>
+    <Refresh />
     <Rescan />
     </HStack>
     <List>

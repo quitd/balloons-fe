@@ -4,7 +4,7 @@ import {
   Divider,
   HStack
 } from '@chakra-ui/react';
-import {List, Transaction, Rescan} from '../../link';
+import {List, Transaction, Rescan, Refresh} from '../../link';
 import {transaction} from '../../type';
 import Head from 'next/head';
 
@@ -14,7 +14,7 @@ export default function Transactions({acData}) {
   return (
     <>
     <Head><title>Transactions — 🎈</title></Head>
-    <HStack><Heading w="full" as="h1">Transactions 🎈</Heading><Rescan /></HStack>
+    <HStack><Heading w="full" as="h1">Transactions 🎈</Heading><Refresh /><Rescan /></HStack>
     <Divider />
     <List>
     {acData.map((v: transaction) => <Transaction key={v.key} tr={v} />)}
