@@ -36,7 +36,7 @@ export function Rescan() {
 
   return <Button colorScheme="green" size="sm" isLoading={l} onClick={async () => {
     sL(true);
-    await fetch('https://8qhd0p.deta.dev/');
+    await fetch('/api/rescan');
     sL(false);
     toast({
       title: 'The topic is being scanned',
