@@ -21,4 +21,4 @@ jobs:
     - run: |
         yarn
         yarn build
-        yarn start & sleep 2; curl "http://localhost:3000/api/rescan"; pkill $$
+        yarn start & sleep 2; curl "http://localhost:3000/api/rescan"; pkill -0 $$
