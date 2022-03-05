@@ -1,7 +1,7 @@
-import {Link, List, Transaction} from '../link'
+import {Link, List, Transaction, Rescan} from '../link'
 import deta from '../db';
 import Head from 'next/head';
-import {Heading, Divider} from '@chakra-ui/react';
+import {Heading, Divider, HStack} from '@chakra-ui/react';
 
 const db = deta.Base("transactions")
 
@@ -15,7 +15,10 @@ export default function Index({data}) {
     Balloons 🎈
     </Heading>
     <Divider />
-    <Heading as="h2" size="md">Latest transaction</Heading>
+    <HStack>
+    <Heading w="full" as="h2" size="md">Latest transaction</Heading>
+    <Rescan />
+    </HStack>
     <List>
     <Transaction tr={data} />
     </List>

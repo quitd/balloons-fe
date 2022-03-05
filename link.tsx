@@ -7,8 +7,11 @@ import {
   Stat,
   StatLabel,
   StatNumber,
-  StatHelpText
+  StatHelpText,
+  useToast,
+  Button
 } from '@chakra-ui/react';
+import {useState} from 'react';
 
 export function Link(props) {
   return <NextLink {...props} passHref><Clink {...props}></Clink></NextLink>
@@ -25,4 +28,22 @@ export function Transaction(p) {
   <StatNumber>{v.amount} balloons</StatNumber>
   <StatHelpText><Link href={"/transactions/"+v.key}>{new Date(v.time).toString()}</Link> — <Clink href={'https://forum.gethopscotch.com/p/'+v.key} target="_blank" rel="noreferrer">forum post ↗</Clink></StatHelpText>
   </Stat>
+}
+
+export function Rescan() {
+  const toast = useToast();
+  const [l, sL] = useState(false);
+
+  return <Button colorScheme="green" size="sm" isLoading={l} onClick={async () => {
+    sL(true);
+    await fetch('https://8qhd0p.deta.dev/');
+    sL(false);
+    toast({
+      title: 'The topic is being scanned',
+      description: "Give it a second then reload the page.",
+      status: 'success',
+      duration: 5000,
+      isClosable: true
+    })
+  }}>Rescan topic</Button>
 }
