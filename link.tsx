@@ -35,7 +35,7 @@ export function Rescan() {
   const toast = useToast();
   const [l, sL] = useState(false);
 
-  return <Button colorScheme="green" size="sm" isLoading={l} onClick={async () => {
+  return <Button colorScheme="green" px="6" isLoading={l} onClick={async () => {
     sL(true);
     const d = await fetch('/api/rescan');
     const {ok} = await d.json();
