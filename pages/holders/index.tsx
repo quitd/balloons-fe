@@ -1,6 +1,6 @@
 import deta from '../../db';
-import {Link, List} from '../../link';
-import {Heading, Grid, Divider} from '@chakra-ui/react';
+import {Link} from '../../link';
+import {Heading, Th, Divider, Table, Tr, Td} from '@chakra-ui/react';
 import {transaction} from '../../type';
 import Head from 'next/head';
 
@@ -12,9 +12,10 @@ export default function Balance({data}) {
     <Head><title>Holders — 🎈</title></Head>
     <Heading as="h1">Holders 🎈</Heading>
     <Divider />
-    <List>
-    {data.map((v: transaction) => <Grid key={v.key} templateColumns="2fr 1fr"><Link href={'/holders/'+v.key}>{v.key}</Link><span>{v.amount} balloons</span></Grid>)}
-    </List>
+    <Table>
+    <Tr><Th>Username</Th><Th isNumeric>Balance</Th></Tr>
+    {data.map((v: transaction) => <Tr key={v.key}><Td><Link href={'/holders/'+v.key}>{v.key}</Link></Td><Td isNumeric>{v.amount} balloons</Td></Tr>)}
+    </Table>
     </>
   );
 }
