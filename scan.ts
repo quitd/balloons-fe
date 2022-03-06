@@ -7,6 +7,7 @@ const users = deta.Base('amounts');
 const trans = deta.Base('transactions');
 
 export default async function Scan() {
+  await db.put(new Date().getTime(), 'lasttime');
   let last = await db.get('last')
   if(!last) last = {value:0};
   const a = await fetch('https://api.allorigins.win/raw?url='+encodeURIComponent('https://forum.gethopscotch.com/t/'+61353+'.json?d='+new Date().getTime()));

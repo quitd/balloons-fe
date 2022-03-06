@@ -1,13 +1,15 @@
 import scan from '../../scan';
+import deta from '../../db';
+
+const d = deta.Base('conf')
 
 export default async function Scan(_, res) {
-  /*await fetch('https://api.github.com/repos/quitd/balloons-be/actions/workflows/21097005/dispatches', {
-    method: 'post',
-    body: JSON.stringify({ref: 'master'}),
-    headers: {
-      Authorization: 'token '+process.env.GH
-    }
-  })*/
-  await scan();
-  res.end();
+  const last = await d.get('lasttime');
+  const g = (new Date().getTime() - (last.value as number)) / (1000 * 60) > 5;
+  if(g) {
+    await scan();
+  }
+  res.json({
+    ok: g
+  })
 }

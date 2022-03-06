@@ -37,12 +37,13 @@ export function Rescan() {
 
   return <Button colorScheme="green" size="sm" isLoading={l} onClick={async () => {
     sL(true);
-    await fetch('/api/rescan');
+    const d = await fetch('/api/rescan');
+    const {ok} = await d.json();
     sL(false);
     toast({
-      title: 'The topic is being scanned',
-      description: "Give it a second then click the refresh button.",
-      status: 'success',
+      title: ok ? 'The topic is being fetched' : 'The topic was fetched in the last 5 minutes.',
+      description: ok ? "Give it a second then click the refresh button." : 'Please wait before doing another fetch',
+      status: ok ? 'success' : 'warning',
       duration: 5000,
       isClosable: true
     })
