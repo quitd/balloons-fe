@@ -30,9 +30,9 @@ export default async function Scan() {
         const user = await users.get(f.username.toLowerCase()) as user
         const tUser = await users.get(v[1].toLowerCase()) as user
         const amount = parseInt(v[2]);
-        if(user.amount >= amount && tUser && user) {
-          users.update({amount: tUser.amount + amount}, v[1].toLowerCase())
-          users.update({amount: user.amount - amount}, f.username.toLowerCase())
+        if(user.value >= amount && tUser && user) {
+          users.update({value: tUser.value + amount}, v[1].toLowerCase())
+          users.update({value: user.value - amount}, f.username.toLowerCase())
           trans.insert({
             type: 'pay',
             from: f.username.toLowerCase(),
