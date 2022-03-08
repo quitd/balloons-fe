@@ -1,7 +1,7 @@
 import deta from '../../db';
 import {Link} from '../../link';
 import {Heading, Th, Divider, Table, Tr, Td} from '@chakra-ui/react';
-import {transaction} from '../../type';
+import {user} from '../../type';
 import Head from 'next/head';
 
 const db = deta.Base("amounts")
@@ -14,7 +14,7 @@ export default function Balance({data}) {
     <Divider />
     <Table>
     <Tr><Th>Username</Th><Th isNumeric>Balance</Th></Tr>
-    {data.map((v: transaction) => <Tr key={v.key}><Td><Link href={'/holders/'+v.key}>{v.key}</Link></Td><Td isNumeric>{v.amount} balloons</Td></Tr>)}
+    {data.map((v: user) => <Tr key={v.key}><Td><Link href={'/holders/'+v.key}>{v.key}</Link></Td><Td isNumeric>{v.value} balloons</Td></Tr>)}
     </Table>
     </>
   );

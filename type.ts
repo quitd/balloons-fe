@@ -9,5 +9,5 @@ export type transaction = {
 
 export type user = {
   key: string,
-  amount: number
+  value: number
 }

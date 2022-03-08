@@ -33,7 +33,7 @@ export default function Index(data: {tr: transaction[], ba: user, user: any}) {
     <Bx>
     <Stat>
     <StatLabel>Balance</StatLabel>
-    <StatNumber>{data.ba.amount} balloons</StatNumber>
+    <StatNumber>{data.ba.value} balloons</StatNumber>
     </Stat>
     </Bx>
 
