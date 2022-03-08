@@ -58,5 +58,5 @@ export function Refresh() {
 }
 
 export function getBadge(n: number) {
-  return [null, <Badge mx="1" colorScheme="purple">🎨 Art Shop</Badge>, <Badge mx="1" colorScheme="blue">💻 Code Shop</Badge>, <Badge mx="1" colorScheme="gray">🔎 Eye Spy</Badge>, <Badge mx="1" colorScheme="red">📈 Maintainer</Badge>][n]
+  return [null, <Badge mx="1" colorScheme="purple">🎨 Art Shop</Badge>, <Badge mx="1" colorScheme="blue">💻 Code Shop</Badge>, <Badge mx="1" colorScheme="gray">🔎 Eye Spy</Badge>, <Badge mx="1" colorScheme="red">📈 Maintainer</Badge>, <Badge mx="1" colorScheme="green">Company</Badge>][n]
 }
