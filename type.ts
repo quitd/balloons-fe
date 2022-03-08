@@ -9,5 +9,6 @@ export type transaction = {
 
 export type user = {
   key: string,
-  value: number
+  value: number,
+  badges: number[] | null
 }

@@ -9,6 +9,7 @@ import {
   StatNumber,
   StatHelpText,
   useToast,
+  Badge,
   Button
 } from '@chakra-ui/react';
 import {useState} from 'react';
@@ -54,4 +55,8 @@ export function Refresh() {
   const r = useRouter();
 
   return <Button variant="ghost" onClick={() => r.replace(r.asPath)}>Refresh</Button>
+}
+
+export function getBadge(n: number) {
+  return [null, <Badge mx="1" colorScheme="purple">🎨 Art Shop</Badge>, <Badge mx="1" colorScheme="blue">💻 Code Shop</Badge>, <Badge mx="1" colorScheme="gray">🔎 Eye Spy</Badge>, <Badge mx="1" colorScheme="red">📈 Maintainer</Badge>][n]
 }

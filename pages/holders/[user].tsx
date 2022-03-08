@@ -1,5 +1,5 @@
 import deta from '../../db';
-import {List, Transaction} from '../../link';
+import {List, Transaction, getBadge} from '../../link';
 import {transaction, user} from '../../type';
 import Head from 'next/head';
 import {
@@ -28,6 +28,7 @@ export default function Index(data: {tr: transaction[], ba: user, user: any}) {
     <Bx>
     <Heading as="h1">{data.user.username}</Heading>
     <Clink href={'https://forum.gethopscotch.com/u/'+data.user.username} target="_blank" rel="noreferrer">See {data.user.username} on the Hopscotch Forum ↗</Clink>
+    <div>{data.ba.badges?data.ba.badges.map(v => getBadge(v)):''}</div>
     </Bx>
 
     <Bx>
